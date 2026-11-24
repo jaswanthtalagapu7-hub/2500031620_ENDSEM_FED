@@ -1,0 +1,85 @@
+GIT LAB EXAM – COMMANDS & STEP-BY-STEP
+
+1. INITIALIZE REPOSITORY
+-----------------------
+mkdir git-practice
+cd git-practice
+git init
+git branch -M main
+
+2. CREATE FILE AND INITIAL COMMIT
+--------------------------------
+Create index.html and write:
+<h1>Welcome to Main</h1>
+
+git add .
+git commit -m "Initial commit"
+
+3. CREATE FEATURE BRANCH
+-----------------------
+git branch feature-header
+git switch feature-header
+
+4. ADD HEADER AND COMMIT
+-----------------------
+Change index.html to:
+<h1>Welcome to Feature Header</h1>
+
+git add .
+git commit -m "Add header"
+
+5. MERGE FEATURE INTO MAIN
+--------------------------
+git switch main
+git merge feature-header
+
+6. CHANGE SAME LINE IN MAIN
+---------------------------
+Change index.html to:
+<h1>Welcome to Main Version</h1>
+
+git add .
+git commit -m "Update main header"
+
+7. CHANGE SAME LINE IN FEATURE
+------------------------------
+git switch feature-header
+
+Change index.html to:
+<h1>Welcome to Feature Version</h1>
+
+git add .
+git commit -m "Update feature header"
+
+8. CREATE MERGE CONFLICT
+------------------------
+git switch main
+git merge feature-header
+
+9. RESOLVE CONFLICT
+-------------------
+File shows:
+
+<<<<<<< HEAD
+<h1>Welcome to Main Version</h1>
+=======
+<h1>Welcome to Feature Version</h1>
+>>>>>>> feature-header
+
+Remove conflict markers and replace with:
+
+<h1>Welcome to Main and Feature Version</h1>
+
+10. COMPLETE MERGE
+------------------
+git add .
+git commit -m "Resolve merge conflict"
+
+11. VERIFY
+----------
+git status
+git branch
+git log --oneline
+git log --oneline --graph --all
+
+
